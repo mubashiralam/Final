@@ -67,7 +67,7 @@ void nuGame() //function to start a new game, can't be void
 	savePt += ".txt";
 	cout << savePt << "\n";
 	outP.open(savePt);
-	outP << "abandonedRoom()";
+	outP << "abandonedRoom() \n";
 	outP << name << endl;
 //	outP << gender << endl;
 
@@ -225,7 +225,7 @@ void hallway1Kev()
 			cout << "It's an empty hallway, with a doors in each direction. \n";
 			break;
 		case 'N':
-			cout << "You head to the North door. \n";
+			cout << "You head to the North door. \n It's labelled as 'Auxiliary Storage.' ";
 			hall1NKev();
 			break;
 		case 'S':
@@ -256,7 +256,7 @@ void hall1NKev()
 {
 	char move;
 	bool cond;
-	cout << "You moved into the hallway after breaking open the door. \n";
+	cout << "You went into the room labeled 'Auxiliary Storage.' \n";
 	cin >> move;
 
 	while (cond = 0)
@@ -276,11 +276,11 @@ void hall1NKev()
 			break;
 		case 'W':
 			cout << " \n";
-			//hall1W();
+
 			break;
 		case 'E':
 			cout << " \n";
-			//hall1E();
+
 			break;
 		case 'C':
 			controls();
