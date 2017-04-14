@@ -1,6 +1,8 @@
 void hallway1Kev()
 {
 	char move;
+	while (cond = 0)
+	{
 	switch (move)
 	{
 	case 'L':
@@ -29,9 +31,11 @@ void hallway1Kev()
 	case 'Q':
 		return;
 	}
+	default :
+		cout << "Did not recognize that command. Please try something. \n";
   
-  cout << " \n";
-
+	 cout << " \n";
+	}
 }
 
 So in case L you could look around and maybe find a sword or a dog or something. And in the cout after the switch statement you can add some action or story to it.
