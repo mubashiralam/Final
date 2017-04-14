@@ -2,6 +2,7 @@ void hallway1Kev()
 {
 	char move;
 	bool cond;
+	string pickup;
 	cout << "You moved into the hallway after breaking open the door. \n";
 	cin >> move;
 	
@@ -10,26 +11,44 @@ void hallway1Kev()
 	switch (move)
 	{
 	case 'L':
+	case 'l':
 		cout << " \n";
 		break;
 	case 'N':
+	case 'n':
 		cout << " \n";
 		hall1NKev();
 		break;
 	case 'S':
+	case 's':
 		cout << " \n";
 		hall1S();
 		break;
 	case 'W':
+	case 'w':
 		cout << " \n";
 		hall1W();
 		break;
-	case 'E':
+	case 'e':
+	case 'e':
 		cout << " \n";
 		hall1E();
 		break;
-	case 'C':
-		controls();
+	case 'G':
+	case 'g':
+		cout << "What would you like to pick up? \n";
+			cin.ignore();
+			getline(cin, pickup);
+			if (pickup == "Crowbar" || pickup == "crowbar")
+			{
+				crowbar = 1;
+				cout << "You've picked up the crowbar. It has been added to your inventory. \n";
+				cond2 = 0;
+			}
+			else
+				cout << "That's not here. \n";
+//	case 'C':
+//		controls();
 	case 'M':
 		main();
 	case 'Q':
@@ -37,8 +56,12 @@ void hallway1Kev()
 	default :
 		cout << "Did not recognize that command. Please try something. \n";
   	}
-	 cout << " \n";
+	
 	}
 }
 
-So in case L you could look around and maybe find a sword or a dog or something. And in the cout after the switch statement you can add some action or story to it.
+So in case L you could look around and maybe find a sword or a dog or something. 
+If you want to pick up an item, use the case G. I left the crowbar there as an example
+Look at the abandonedRoom as an example.
+
+
