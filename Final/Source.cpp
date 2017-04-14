@@ -9,6 +9,12 @@ void loadGame();
 void controls();
 
 void abandonedRoom();
+void hallway1Kev();
+
+void hall1NKev();
+void hall1S();
+void hall1W();
+void hall1E();
 
 int main()
 {
@@ -98,8 +104,8 @@ void controls() //function to show the various controls
 	cout << "Press G to grab an item from the environment. \n";
 	cout << "\t After pressing 'G crowbar', you will pick up a crowbar and add it to your inventory. \n";
 
-	cout << "Press U 'itemname' to use an item from your inventory. \n";
-	cout << "\t After pressing 'U crowbar', you'd be able to use the crowbar to for example pry open a door. \n";
+	//cout << "Press U 'itemname' to use an item from your inventory. \n";
+	//cout << "\t After pressing 'U crowbar', you'd be able to use the crowbar to for example pry open a door. \n";
 
 	cout << "Press M to return to the main menu. \n";
 
@@ -114,28 +120,35 @@ void controls() //function to show the various controls
 void abandonedRoom()
 {
 	char move;
-	int cond;
+	int cond, crowbar = 0, cond2=0;
 	string action;
 	ofstream outP;
 
+	if (cond2 == 0)
+	{
+		cout << "You wake up on a hard, cold floor. \n";
+		cout << "As you stand up, you see a door in front of you.\n";
+		cond2 = 1;
+	}
 
-
-	cout << "You wake up on a hard, cold floor. \n";
-	cout << "As you stand up, you see a door in front of you.\n";
 	cout << "What do you do? \n";
 	cin >> move;
 
-	while (cond = 1)
-	{
+
 		switch (move)
 		{
 		case 'L':
-			cout << "As your eyes adjust to the harsh light, you notice a crowbar in the corner of the room.";
-			break;
+			if (crowbar == 0)
+				cout << "As your eyes adjust to the harsh light, you notice a crowbar in the corner of the room.";
+			else
+				cout << "The room is pretty bare with some shelves to your left, and a bright white light directly above you.";
+				break;
 		case 'N':
 		{	
-			if()
-			cout << "You try to open the door, but it won't budge.";
+			if (crowbar == 0)
+				cout << "You try to open the door, but it won't budge.";
+			else
+				hallway1();
 			break;
 		}
 		case 'S':
@@ -155,14 +168,52 @@ void abandonedRoom()
 			return;
 
 		}
-	}
 	cout << "What would you like to do now?\n";
 	cin.ignore();
 	getline(cin,action);
-	if (action == "U Crowbar")
+	if (action == "G Crowbar")
 	{
+		crowbar = 1;
 		cout << "You've picked up the crowbar. It has been added to your inventory.";
 		
 	}
 
+}
+
+void hallway1Kev()
+{
+	char move;
+	switch (move)
+	{
+	case 'L':
+		cout << "It's an empty hallway, with a doors in each direction. \n";
+		break;
+	case 'N':
+		cout << "You head to the North door. \n";
+		hall1NKev();
+		break;
+	case 'S':
+		cout << "You head to the South door. \n";
+		hall1S();
+		break;
+	case 'W':
+		cout << "You head to the West door. \n";
+		hall1W();
+		break;
+	case 'E':
+		cout << "You head to the East door. \n";
+		hall1E();
+		break;
+	case 'C':
+		controls();
+	case 'M':
+		main();
+	case 'Q':
+		return;
+	}
+}
+
+void hall1NKev()
+{
+	
 }
