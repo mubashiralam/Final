@@ -1,9 +1,0 @@
-cout << "Please enter your gender (f/m). \n";
-	cin >> gender;
-	cout << "Would you like to save to slot 1, 2, or 3. \n";
-	cin >> savePt;
-	savePt += ".txt";
-	cout << "savePt \n";
-	outP.open(savePt);
-	outP << name << endl;
-	outP << gender << endl;
