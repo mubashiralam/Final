@@ -1,6 +1,10 @@
 void hallway1Kev()
 {
 	char move;
+	bool cond;
+	cout << "You moved into the hallway after breaking open the door. \n";
+	cin >> move;
+	
 	while (cond = 0)
 	{
 	switch (move)
