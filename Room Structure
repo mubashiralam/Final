@@ -1,0 +1,37 @@
+void hallway1Kev()
+{
+	char move;
+	switch (move)
+	{
+	case 'L':
+		cout << " \n";
+		break;
+	case 'N':
+		cout << " \n";
+		hall1NKev();
+		break;
+	case 'S':
+		cout << " \n";
+		hall1S();
+		break;
+	case 'W':
+		cout << " \n";
+		hall1W();
+		break;
+	case 'E':
+		cout << " \n";
+		hall1E();
+		break;
+	case 'C':
+		controls();
+	case 'M':
+		main();
+	case 'Q':
+		return;
+	}
+  
+  cout << " \n";
+
+}
+
+So in case L you could look around and maybe find a sword or a dog or something. And in the cout after the switch statement you can add some action or story to it.
