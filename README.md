@@ -19,3 +19,7 @@ Which are rooms off the first hallway. I'll try to get the hall1NKev done and ad
 Add your name to the end of whatever room you do so it's easy to identify what room you try to change.
 
 But essentially just copy and paste hall1NKev to a new section, rename it to Hall1"YourName" and add in whatever you want there. But the foundations should be set.
+
+Sometime over the next few days, I'm going to make a small map. With maybe 2 or 3 rooms for each of us, they'll be named so it'll be easier to do.
+
+If you come up with any story ideas or anything, let me know.
