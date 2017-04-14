@@ -12,9 +12,9 @@ void abandonedRoom();
 void hallway1Kev();
 
 void hall1NKev();
-void hall1S();
-void hall1W();
-void hall1E();
+//void hall1S();
+//void hall1W();
+//void hall1E();
 
 int main()
 {
@@ -52,7 +52,7 @@ int main()
 void nuGame() //function to start a new game, can't be void
 {
 	string name;
-	char gender; //don't feel like we need gender 
+//	char gender; //don't feel like we need gender so leaving it out for now, dont even really need name yet
 	string savePt;
 	ofstream outP;
 
@@ -60,8 +60,8 @@ void nuGame() //function to start a new game, can't be void
 	cout << "Please enter the name you'd like to be called. \n"; //name
 	cin.ignore();
 	getline(cin, name);
-	cout << "Please enter your gender (f/m). \n";
-	cin >> gender;
+//	cout << "Please enter your gender (f/m). \n";
+//	cin >> gender;
 	cout << "Would you like to save to slot 1, 2, or 3. \n";
 	cin >> savePt;
 	savePt += ".txt";
@@ -69,9 +69,9 @@ void nuGame() //function to start a new game, can't be void
 	outP.open(savePt);
 	outP << "abandonedRoom()";
 	outP << name << endl;
-	outP << gender << endl;
+//	outP << gender << endl;
 
-	cout << "Thank you, your progress will be automatically saved.";
+	cout << "Thank you, your progress will be automatically saved. \n \n";
 
 	abandonedRoom();
 
@@ -95,21 +95,21 @@ void controls() //function to show the various controls
 	char next;
 
 	cout << "Press L to look around the area. \n";
-	cout << "\t After pressing 'L', the game will tell you what's in the room.";
+	cout << "\t After pressing 'L', the game will tell you what's in the room. \n \n";
 
 	cout << "Press N, S, E, or W to head in the \n respective North, South, East, or West direction. \n";
 	cout << "\t After pressing 'N', you would head through the door to the N but \n if there isn't a door";
-	cout << " the game will tell you there's nothing to pass through there. \n";
+	cout << " the game will tell you there's nothing to pass through there. \n \n";
 
 	cout << "Press G to grab an item from the environment. \n";
-	cout << "\t After pressing 'G crowbar', you will pick up a crowbar and add it to your inventory. \n";
+	cout << "\t After pressing 'G crowbar', you will pick up a crowbar and add it to your inventory. \n \n";
 
 	//cout << "Press U 'itemname' to use an item from your inventory. \n";
 	//cout << "\t After pressing 'U crowbar', you'd be able to use the crowbar to for example pry open a door. \n";
 
-	cout << "Press M to return to the main menu. \n";
+	cout << "Press M to return to the main menu. \n \n";
 
-	cout << "Press Q to quit.";
+	cout << "Press Q to quit. \n \n";
 
 	cout << "Press any key and hit enter to return to the main menu. \n";
 	cin >> next;
@@ -120,100 +120,177 @@ void controls() //function to show the various controls
 void abandonedRoom()
 {
 	char move;
-	int cond, crowbar = 0, cond2=0;
-	string action;
+	int cond = 0, crowbar = 0, cond2 = 0;
+	string action, pickup;
 	ofstream outP;
+	
 
-	if (cond2 == 0)
+	if (cond == 0)
 	{
 		cout << "You wake up on a hard, cold floor. \n";
 		cout << "As you stand up, you see a door in front of you.\n";
-		cond2 = 1;
+		cond = 1;
 	}
 
-	cout << "What do you do? \n";
-	cin >> move;
 
-
+	do
+	{
+		cout << "What do you do? \n";
+		cin >> move;
 		switch (move)
 		{
 		case 'L':
+		case 'l':
 			if (crowbar == 0)
-				cout << "As your eyes adjust to the harsh light, you notice a crowbar in the corner of the room.";
+				cout << "As your eyes adjust to the harsh light, you notice a crowbar in the corner of the room. \n";
 			else
-				cout << "The room is pretty bare with some shelves to your left, and a bright white light directly above you.";
-				break;
+				cout << "The room is pretty bare with some shelves to your left, and a bright white light directly above you. \n You have already picked up the crowbar. \n";
+			break;
 		case 'N':
-		{	
+		case 'n':
+		{
 			if (crowbar == 0)
-				cout << "You try to open the door, but it won't budge.";
+				cout << "You try to open the door, but it won't budge. \n";
 			else
-				hallway1();
+			{
+				cout << "You used the crowbar to pry open the door and walked through. \n";
+				hallway1Kev();
+			}
 			break;
 		}
 		case 'S':
-			cout << "There's a wall there. You can't walk through walls.";
+		case 's':
+			cout << "There's a wall there. You can't walk through walls. \n";
 			break;
 		case 'W':
-			cout << "There's a wall there. You can't walk through walls.";
+		case 'w':
+			cout << "There's a wall there. You can't walk through walls. \n";
 			break;
 		case 'E':
-			cout << "There's a wall there. You can't walk through walls.";
+		case 'e':
+			cout << "There's a wall there. You can't walk through walls. \n";
 			break;
-		case 'C':
-			controls();
+	//	case 'C':
+//		case 'c':
+	//		controls();
+		case 'G':
+		case 'g':
+			cout << "What would you like to pick up? \n";
+			cin.ignore();
+			getline(cin, pickup);
+			if (pickup == "Crowbar" || pickup == "crowbar")
+			{
+				crowbar = 1;
+				cout << "You've picked up the crowbar. It has been added to your inventory. \n";
+				cond2 = 0;
+			}
+			else
+				cout << "That's not here. \n";
+			break;
 		case 'M':
+		case 'm':
 			main();
-		case 'Q' :
+		case 'Q':
+		case 'q':
 			return;
-
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
 		}
-	cout << "What would you like to do now?\n";
-	cin.ignore();
-	getline(cin,action);
-	if (action == "G Crowbar")
-	{
-		crowbar = 1;
-		cout << "You've picked up the crowbar. It has been added to your inventory.";
-		
-	}
+
+	//	cout << "What would you like to do now?\n";
+		//cin.ignore();
+//		getline(cin, action);
+	//	if (action == "G Crowbar")
+	//	{
+//			crowbar = 1;
+//			cout << "You've picked up the crowbar. It has been added to your inventory.";
+		//
+		//}
+	} while (cond2 != 1);
 
 }
 
 void hallway1Kev()
 {
 	char move;
-	switch (move)
+	bool cond;
+	cout << "You moved into the hallway after breaking open the door. \n";
+	cin >> move;
+
+	while (cond = 0)
 	{
-	case 'L':
-		cout << "It's an empty hallway, with a doors in each direction. \n";
-		break;
-	case 'N':
-		cout << "You head to the North door. \n";
-		hall1NKev();
-		break;
-	case 'S':
-		cout << "You head to the South door. \n";
-		hall1S();
-		break;
-	case 'W':
-		cout << "You head to the West door. \n";
-		hall1W();
-		break;
-	case 'E':
-		cout << "You head to the East door. \n";
-		hall1E();
-		break;
-	case 'C':
-		controls();
-	case 'M':
-		main();
-	case 'Q':
-		return;
+		switch (move)
+		{
+		case 'L':
+			cout << "It's an empty hallway, with a doors in each direction. \n";
+			break;
+		case 'N':
+			cout << "You head to the North door. \n";
+			hall1NKev();
+			break;
+		case 'S':
+			cout << "You head to the South door. \n";
+			//hall1S();
+			break;
+		case 'W':
+			cout << "You head to the West door. \n";
+			//hall1W();
+			break;
+		case 'E':
+			cout << "You head to the East door. \n";
+			//hall1E();
+			break;
+		case 'C':
+			controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default :
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 	}
 }
 
 void hall1NKev()
 {
-	
+	char move;
+	bool cond;
+	cout << "You moved into the hallway after breaking open the door. \n";
+	cin >> move;
+
+	while (cond = 0)
+	{
+		switch (move)
+		{
+		case 'L':
+			cout << " \n";
+			break;
+		case 'N':
+			cout << " \n";
+			hall1NKev();
+			break;
+		case 'S':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'C':
+			controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
+		cout << " \n";
+	}
 }
