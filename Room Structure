@@ -30,10 +30,9 @@ void hallway1Kev()
 		main();
 	case 'Q':
 		return;
-	}
 	default :
 		cout << "Did not recognize that command. Please try something. \n";
-  
+  	}
 	 cout << " \n";
 	}
 }
