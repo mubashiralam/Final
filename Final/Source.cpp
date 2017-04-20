@@ -13,7 +13,7 @@ void hallway1Kev();
 
 void hall1NKev();
 //void hall1S();
-//void hall1W();
+void hall1WAlex();
 //void hall1E();
 
 int main()
@@ -233,8 +233,8 @@ void hallway1Kev()
 			//hall1S();
 			break;
 		case 'W':
-			cout << "You head to the West door. \n";
-			//hall1W();
+			cout << "You head to the West door. \n It's labelled as 'Basement.' ";
+			hall1WAlex();
 			break;
 		case 'E':
 			cout << "You head to the East door. \n";
@@ -292,5 +292,47 @@ void hall1NKev()
 			cout << "Did not recognize that command. Please try something. \n";
 		}
 		cout << " \n";
+	}
+}
+
+void hall1WAlex()
+{
+	char move;
+	bool cond;
+	cout << "You went into the room labeled 'Basement.' \n";
+	cin >> move;
+
+	while (cond = 0)
+	{
+		switch (move)
+		{
+		case 'L':
+			cout << " \n";
+			break;
+		case 'N':
+			cout << " \n";
+			hall1NKev();
+			break;
+		case 'S':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+			cout << " \n";
+			hall1WAlex();
+			break;
+		case 'E':
+			cout << " \n";
+
+			break;
+		case 'C':
+			controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 	}
 }
