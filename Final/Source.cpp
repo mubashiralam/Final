@@ -279,7 +279,7 @@ void hall1WAlex()
 			break;
 		case 'N':
 			cout << " \n";
-			hall1NKev();
+			hall1SKev();
 			break;
 		case 'S':
 			cout << " \n";
@@ -324,7 +324,7 @@ void hall1E()
 		case 'N':
 		case 'n':
 			cout << " \n";
-			hall1NKev();
+			hall1SKev();
 			break;
 		case 'S':
 		case 's':
@@ -376,58 +376,6 @@ void hall1N()
 		case 'N':
 		case 'n':
 			cout << " \n";
-			break;
-		case 'S':
-		case 's':
-			cout << " \n";
-			//hall1S();
-			break;
-		case 'W':
-		case 'w':
-			cout << " \n";
-			//hall1W();
-			break;
-		case 'e':
-		case 'E':
-			cout << " \n";
-			//hall1E();
-			break;
-		case 'G':
-		case 'g':
-			cout << " ";
-			//	case 'C':
-			//		controls();
-		case 'M':
-			main();
-		case 'Q':
-			return;
-		default:
-			cout << "Did not recognize that command. Please try something. \n";
-		}
-
-	}
-}
-
-void hall1E()
-{
-	char move;
-	bool cond;
-	string pickup;
-	cout << "You moved into the hallway after breaking open the door. \n";
-	cin >> move;
-
-	while (cond = 0)
-	{
-		switch (move)
-		{
-		case 'L':
-		case 'l':
-			cout << " \n";
-			break;
-		case 'N':
-		case 'n':
-			cout << " \n";
-			hall1NKev();
 			break;
 		case 'S':
 		case 's':
