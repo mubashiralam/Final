@@ -225,11 +225,15 @@ void abandonedRoom()
 void hall1SKev()
 {
 	char move;
-	bool cond;
+	bool cond=1;
+	int move2;
 	cout << "You moved into the hallway after breaking open the door. \n";
+	cout << "There are four rooms in front of you. \n";
+	cout << "And a hallway to the west and east sides. \n";
+	cout << "Where did you want to go? \n";
 	cin >> move;
 
-	while (cond = 0)
+	do
 	{
 		switch (move)
 		{
@@ -237,7 +241,26 @@ void hall1SKev()
 			cout << "It's an empty hallway, with a doors in each direction. \n";
 			break;
 		case 'N':
-			cout << " ";
+		case 'n':
+			cout << "There are 4 rooms.";
+			cout << "Which room did you want to go into?";
+			cin >> move2;
+			switch (move2)
+			{
+			case 1:
+				rm1(); //syed
+				break;
+			case 2:
+				rm2(); //syed
+				break;
+			case 3:
+				rm3(); //kevin
+				break;
+			case 4: //alex
+				break;
+			default : 
+				break;
+			}
 			break;
 		case 'S':
 			cout << "You head to the South door. \n";
@@ -259,8 +282,9 @@ void hall1SKev()
 			return;
 		default:
 			cout << "Did not recognize that command. Please try something. \n";
+			break;
 		}
-	}
+	} while (cond != 0);
 }
 
 void hall1WAlex()
@@ -510,7 +534,58 @@ void medBay()
 	}
 }
 
-void rm1()
+void rm1() //syed
+{
+	char move;
+	bool cond;
+	string pickup;
+	cout << "  \n";
+	cin >> move;
+
+	while (cond = 0)
+	{
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
+
+	}
+} 
+
+void rm2() //syed
 {
 	char move;
 	bool cond;
@@ -561,21 +636,27 @@ void rm1()
 	}
 }
 
-void rm2()
+void rm3() //kevin
+
 {
+
 	char move;
-	bool cond;
+	bool cond=1;
 	string pickup;
-	cout << "  \n";
+	int treasureBox;
+	cout << " You've walked into the third room. \n";
+	cout << " It seems like somebody's bedroom. \n";
 	cin >> move;
 
-	while (cond = 0)
+	do
 	{
 		switch (move)
 		{
 		case 'L':
 		case 'l':
-			cout << " \n";
+			cout << " After looking around you see a treasure box. \n";
+			cout << " You're surprised to see a treasure box because this a space ship. \n";
+
 			break;
 		case 'N':
 		case 'n':
@@ -596,9 +677,29 @@ void rm2()
 			cout << " \n";
 			//hall1E();
 			break;
-		case 'G':
+		case 'G': //action key
 		case 'g':
-			cout << " ";
+			cout << "What would you like to do? \n";
+			cin.ignore();
+			getline(cin, pickup);
+			if (pickup == "Treasure Box" || pickup == "treasure box" || pickup == "treasure" || pickup == "box")
+			{
+				treasureBox = 1;
+				cout << "There was nothing in the treasure box. Keep looking \n";
+				
+			}
+			else if (pickup == "diary" || pickup == "Diary")
+			{
+				cout << "A piece of paper falls out of the diary. \n";
+				cout << "It has a set of letters and numbers written on it. \n";
+				cout << "1CqM2MvB3EoR";
+				
+			}
+			else
+			{		cout << "That item isn't in this room.";
+			
+			}
+
 			//	case 'C':
 			//		controls();
 		case 'M':
@@ -609,59 +710,10 @@ void rm2()
 			cout << "Did not recognize that command. Please try something. \n";
 		}
 
-	}
+	} while (cond != 1);
+
 }
 
-void rm3()
-{
-	char move;
-	bool cond;
-	string pickup;
-	cout << "  \n";
-	cin >> move;
-
-	while (cond = 0)
-	{
-		switch (move)
-		{
-		case 'L':
-		case 'l':
-			cout << " \n";
-			break;
-		case 'N':
-		case 'n':
-			cout << " \n";
-			break;
-		case 'S':
-		case 's':
-			cout << " \n";
-			//hall1S();
-			break;
-		case 'W':
-		case 'w':
-			cout << " \n";
-			//hall1W();
-			break;
-		case 'e':
-		case 'E':
-			cout << " \n";
-			//hall1E();
-			break;
-		case 'G':
-		case 'g':
-			cout << " ";
-			//	case 'C':
-			//		controls();
-		case 'M':
-			main();
-		case 'Q':
-			return;
-		default:
-			cout << "Did not recognize that command. Please try something. \n";
-		}
-
-	}
-}
 
 void rm4()
 {
