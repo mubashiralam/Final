@@ -44,20 +44,20 @@ int main()
 	switch (menuChoice)
 	{
 	case 1:
-	nuGame();
-	break;
+		nuGame();
+		break;
 	case 2:
-	loadGame();
-	break;
+		loadGame();
+		break;
 	case 3:
-	controls();
-	break;
+		controls();
+		break;
 	case 4:
-	return 0;
+		return 0;
 	default:
-	cout << "Please choose between options 1-4. \n \n";
-	main();
-	break;
+		cout << "Please choose between options 1-4. \n \n";
+		main();
+		break;
 	}
 }
 
@@ -139,85 +139,85 @@ void abandonedRoom()
 
 	if (cond == 0)
 	{
-	cout << "You wake up on a hard, cold floor. \n";
-	cout << "As you stand up, you see a door in front of you.\n";
-	cond = 1;
+		cout << "You wake up on a hard, cold floor. \n";
+		cout << "As you stand up, you see a door in front of you.\n";
+		cond = 1;
 	}
 
 
 	do
 	{
-	cout << "What do you do? \n";
-	cin >> move;
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	if (crowbar == 0)
-	cout << "As your eyes adjust to the harsh light, you notice a crowbar in the corner of the room. \n";
-	else
-	cout << "The room is pretty bare with some shelves to your left, and a bright white light directly above you. \n You have already picked up the crowbar. \n";
-	break;
-	case 'N':
-	case 'n':
-	{
-	if (crowbar == 0)
-	cout << "You try to open the door, but it won't budge. \n";
-	else
-	{
-	cout << "You used the crowbar to pry open the door and walked through. \n";
-	hall1SKev();
-	}
-	break;
-	}
-	case 'S':
-	case 's':
-	cout << "There's a wall there. You can't walk through walls. \n";
-	break;
-	case 'W':
-	case 'w':
-	cout << "There's a wall there. You can't walk through walls. \n";
-	break;
-	case 'E':
-	case 'e':
-	cout << "There's a wall there. You can't walk through walls. \n";
-	break;
-	//	case 'C':
-	//	case 'c':
-	//	controls();
-	case 'G':
-	case 'g':
-	cout << "What would you like to pick up? \n";
-	cin.ignore();
-	getline(cin, pickup);
-	if (pickup == "Crowbar" || pickup == "crowbar")
-	{
-	crowbar = 1;
-	cout << "You've picked up the crowbar. It has been added to your inventory. \n";
-	cond2 = 0;
-	}
-	else
-	cout << "That's not here. \n";
-	break;
-	case 'M':
-	case 'm':
-	main();
-	case 'Q':
-	case 'q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		cout << "What do you do? \n";
+		cin >> move;
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			if (crowbar == 0)
+				cout << "As your eyes adjust to the harsh light, you notice a crowbar in the corner of the room. \n";
+			else
+				cout << "The room is pretty bare with some shelves to your left, and a bright white light directly above you. \n You have already picked up the crowbar. \n";
+			break;
+		case 'N':
+		case 'n':
+		{
+			if (crowbar == 0)
+				cout << "You try to open the door, but it won't budge. \n";
+			else
+			{
+				cout << "You used the crowbar to pry open the door and walked through. \n";
+				hall1SKev();
+			}
+			break;
+		}
+		case 'S':
+		case 's':
+			cout << "There's a wall there. You can't walk through walls. \n";
+			break;
+		case 'W':
+		case 'w':
+			cout << "There's a wall there. You can't walk through walls. \n";
+			break;
+		case 'E':
+		case 'e':
+			cout << "There's a wall there. You can't walk through walls. \n";
+			break;
+			//	case 'C':
+			//		case 'c':
+			//		controls();
+		case 'G':
+		case 'g':
+			cout << "What would you like to pick up? \n";
+			cin.ignore();
+			getline(cin, pickup);
+			if (pickup == "Crowbar" || pickup == "crowbar")
+			{
+				crowbar = 1;
+				cout << "You've picked up the crowbar. It has been added to your inventory. \n";
+				cond2 = 0;
+			}
+			else
+				cout << "That's not here. \n";
+			break;
+		case 'M':
+		case 'm':
+			main();
+		case 'Q':
+		case 'q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
-	//	cout << "What would you like to do now?\n";
-	//cin.ignore();
-	//	getline(cin, action);
-	//	if (action == "G Crowbar")
-	//	{
-	//	crowbar = 1;
-	//	cout << "You've picked up the crowbar. It has been added to your inventory.";
-	//
-	//}
+		//	cout << "What would you like to do now?\n";
+		//cin.ignore();
+		//		getline(cin, action);
+		//	if (action == "G Crowbar")
+		//	{
+		//			crowbar = 1;
+		//			cout << "You've picked up the crowbar. It has been added to your inventory.";
+		//
+		//}
 	} while (cond2 != 1);
 
 }
@@ -235,55 +235,55 @@ void hall1SKev()
 
 	do
 	{
-	switch (move)
-	{
-	case 'L':
-	cout << "It's an empty hallway, with a doors in each direction. \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << "There are 4 rooms.";
-	cout << "Which room did you want to go into?";
-	cin >> move2;
-	switch (move2)
-	{
-	case 1:
-	rm1(); //syed
-	break;
-	case 2:
-	rm2(); //syed
-	break;
-	case 3:
-	rm3(); //kevin
-	break;
-	case 4: //alex
-	break;
-	default : 
-	break;
-	}
-	break;
-	case 'S':
-	cout << "You head to the South door. \n";
-	//hall1S();
-	break;
-	case 'W':
-	cout << "You head to the West door. \n It's labelled as 'Basement.' ";
-	hall1WAlex();
-	break;
-	case 'E':
-	cout << "You head to the East door. \n";
-	hall1E();
-	break;
-	case 'C':
-	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	break;
-	}
+		switch (move)
+		{
+		case 'L':
+			cout << "It's an empty hallway, with a doors in each direction. \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << "There are 4 rooms.";
+			cout << "Which room did you want to go into?";
+			cin >> move2;
+			switch (move2)
+			{
+			case 1:
+				rm1(); //syed
+				break;
+			case 2:
+				rm2(); //syed
+				break;
+			case 3:
+				rm3(); //kevin
+				break;
+			case 4: //alex
+				break;
+			default : 
+				break;
+			}
+			break;
+		case 'S':
+			cout << "You head to the South door. \n";
+			//hall1S();
+			break;
+		case 'W':
+			cout << "You head to the West door. \n It's labelled as 'Basement.' ";
+			hall1WAlex();
+			break;
+		case 'E':
+			cout << "You head to the East door. \n";
+			hall1E();
+			break;
+		case 'C':
+			controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+			break;
+		}
 	} while (cond != 0);
 }
 
@@ -296,36 +296,36 @@ void hall1WAlex()
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	cout << " \n";
-	break;
-	case 'N':
-	cout << " \n";
-	hall1SKev();
-	break;
-	case 'S':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	cout << " \n";
-	hall1WAlex();
-	break;
-	case 'E':
-	cout << " \n";
+		switch (move)
+		{
+		case 'L':
+			cout << " \n";
+			break;
+		case 'N':
+			cout << " \n";
+			hall1SKev();
+			break;
+		case 'S':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+			cout << " \n";
+			hall1WAlex();
+			break;
+		case 'E':
+			cout << " \n";
 
-	break;
-	case 'C':
-	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+			break;
+		case 'C':
+			controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 	}
 }
 
@@ -339,44 +339,44 @@ void hall1E()
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	hall1SKev();
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			hall1SKev();
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -391,43 +391,43 @@ void hall1N()
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -437,48 +437,48 @@ void cafe()
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -488,48 +488,48 @@ void medBay()
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -539,48 +539,48 @@ void rm1() //syed
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 } 
@@ -590,50 +590,48 @@ void rm2() //syed
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	cout << "There is a rotten dead body on the floor. It is too stinky!\n";
-	break;
-	case 'N':
-	case 'n':
-		cout << "There is a nothing inside. Looks like no one comes in this room for a while. \n";
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -652,65 +650,65 @@ void rm3() //kevin
 
 	do
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " After looking around you see a treasure box. \n";
-	cout << " You're surprised to see a treasure box because this a space ship. \n";
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " After looking around you see a treasure box. \n";
+			cout << " You're surprised to see a treasure box because this a space ship. \n";
 
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G': //action key
-	case 'g':
-	cout << "What would you like to do? \n";
-	cin.ignore();
-	getline(cin, pickup);
-	if (pickup == "Treasure Box" || pickup == "treasure box" || pickup == "treasure" || pickup == "box")
-	{
-	treasureBox = 1;
-	cout << "There was nothing in the treasure box. Keep looking \n";
-	
-	}
-	else if (pickup == "diary" || pickup == "Diary")
-	{
-	cout << "A piece of paper falls out of the diary. \n";
-	cout << "It has a set of letters and numbers written on it. \n";
-	cout << "1CqM2MvB3EoR";
-	
-	}
-	else
-	{	cout << "That item isn't in this room.";
-	
-	}
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G': //action key
+		case 'g':
+			cout << "What would you like to do? \n";
+			cin.ignore();
+			getline(cin, pickup);
+			if (pickup == "Treasure Box" || pickup == "treasure box" || pickup == "treasure" || pickup == "box")
+			{
+				treasureBox = 1;
+				cout << "There was nothing in the treasure box. Keep looking \n";
+				
+			}
+			else if (pickup == "diary" || pickup == "Diary")
+			{
+				cout << "A piece of paper falls out of the diary. \n";
+				cout << "It has a set of letters and numbers written on it. \n";
+				cout << "1CqM2MvB3EoR";
+				
+			}
+			else
+			{		cout << "That item isn't in this room.";
+			
+			}
 
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	} while (cond != 1);
 
@@ -722,48 +720,48 @@ void rm4()
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -773,48 +771,48 @@ void engineRm()
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
-	cout << "Looks like you entered into the engine room.\n There is a little light inside but no one is here.\nOH wait! I found a key.\n";
+
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -824,48 +822,48 @@ void weaponsRm()
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
@@ -875,104 +873,99 @@ void commsRm()
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
-
-void rm1()
-{
-}
-
 
 void bridge()
 {
 	char move;
 	bool cond;
 	string pickup;
-	cout << " \n";
+	cout << "  \n";
 	cin >> move;
 
 	while (cond = 0)
 	{
-	switch (move)
-	{
-	case 'L':
-	case 'l':
-	cout << " \n";
-	break;
-	case 'N':
-	case 'n':
-	cout << " \n";
-	break;
-	case 'S':
-	case 's':
-	cout << " \n";
-	//hall1S();
-	break;
-	case 'W':
-	case 'w':
-	cout << " \n";
-	//hall1W();
-	break;
-	case 'e':
-	case 'E':
-	cout << " \n";
-	//hall1E();
-	break;
-	case 'G':
-	case 'g':
-	cout << " ";
-	//	case 'C':
-	//	controls();
-	case 'M':
-	main();
-	case 'Q':
-	return;
-	default:
-	cout << "Did not recognize that command. Please try something. \n";
-	}
+		switch (move)
+		{
+		case 'L':
+		case 'l':
+			cout << " \n";
+			break;
+		case 'N':
+		case 'n':
+			cout << " \n";
+			break;
+		case 'S':
+		case 's':
+			cout << " \n";
+			//hall1S();
+			break;
+		case 'W':
+		case 'w':
+			cout << " \n";
+			//hall1W();
+			break;
+		case 'e':
+		case 'E':
+			cout << " \n";
+			//hall1E();
+			break;
+		case 'G':
+		case 'g':
+			cout << " ";
+			//	case 'C':
+			//		controls();
+		case 'M':
+			main();
+		case 'Q':
+			return;
+		default:
+			cout << "Did not recognize that command. Please try something. \n";
+		}
 
 	}
 }
