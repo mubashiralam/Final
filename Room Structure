@@ -1,13 +1,24 @@
-void hallway1Kev()
+int item=0; // placed outside of the function, set the item to 0 first and then in the function, you change it to 1
+
+void roomName()
 {
 	char move;
-	bool cond;
-	string pickup;
-	cout << "You moved into the hallway after breaking open the door. \n";
+	int cond2=0; // if you want something to only happen the first time you enter the room, you can set this to 0
+			//	and then change it to 1 after the action happens, like on line 12
+	string pickup; //variable to accept the item name
+	cout << " \n";
 	cin >> move;
 	
-	while (cond = 0)
+	if (cond2 == 0) //taken from abandoned room, after it runs the first time, it doesn't run again because of cond2
 	{
+		cout << "You wake up on a hard, cold floor. \n";
+		cout << "As you stand up, you see a door in front of you.\n";
+		cond2 = 1;
+	}
+	
+	do	{
+	cout << "What do you want to do?\n";
+	cin >> move;
 	switch (move)
 	{
 	case 'L':
@@ -16,42 +27,41 @@ void hallway1Kev()
 		break;
 	case 'N':
 	case 'n':
-		cout << " \n";
-		hall1NKev();
+		cout << "Goes North \n";
+		northRoom();
 		break;
 	case 'S':
 	case 's':
-		cout << " \n";
-		hall1S();
+		cout << "South \n";
+		southRoom();
 		break;
 	case 'W':
 	case 'w':
-		cout << " \n";
-		hall1W();
+		cout << "West \n";
+		westRoom();
 		break;
 	case 'e':
 	case 'e':
 		cout << " \n";
-		hall1E();
+		eastRoom();
 		break;
 	case 'G':
 	case 'g':
 		cout << "What would you like to pick up? \n";
-			cin.ignore();
-			getline(cin, pickup);
-			if (pickup == "Crowbar" || pickup == "crowbar")
+			cin.ignore(); //ignores other things that were typed before here
+			getline(cin, pickup); //so this only accepts stuff after the line
+			if (pickup == "Item" || pickup == "item") //two spellings in case the user doesn't want to use capital letters
 			{
-				crowbar = 1;
-				cout << "You've picked up the crowbar. It has been added to your inventory. \n";
-				cond2 = 0;
+				item = 1;
+				cout << "You've picked up the item. It has been added to your inventory. \n";
 			}
 			else
 				cout << "That's not here. \n";
-//	case 'C':
-//		controls();
 	case 'M':
+	case 'm':
 		main();
 	case 'Q':
+	case 'q':
 		return;
 	default :
 		cout << "Did not recognize that command. Please try something. \n";
@@ -61,7 +71,7 @@ void hallway1Kev()
 }
 
 So in case L you could look around and maybe find a sword or a dog or something. 
-If you want to pick up an item, use the case G. I left the crowbar there as an example
+If you want to pick up an item, use the case G. I left the item there as an example
 Look at the abandonedRoom as an example.
 
 
