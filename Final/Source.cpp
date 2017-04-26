@@ -833,12 +833,12 @@ void engineRm()
 			break;
 		case 'W':
 		case 'w':
-			cout << "wall \n";
+			cout << "hallway \n";
+			hall1E();
 			break;
 		case 'e':
 		case 'E':
-			cout << "You walk back into the hallway. \n";
-			hall1E();
+			cout << "wall \n";
 			break;
 		case 'G':
 		case 'g':
@@ -992,6 +992,8 @@ void bridge()
 		case 'e':
 		case 'E':
 			cout << "There are 2 rooms in that direction.\n";
+			do
+			{
 			cout << "The first room is the Communications Room and the other is the Weapons Room.\n";
 			cin >> move2;
 			switch (move2)
@@ -1002,6 +1004,10 @@ void bridge()
 			case 2:
 				weaponsRm();
 				break;
+			default:
+				cout << "Didn't understand your command. \n";
+			}
+			} while (cond != 1);
 			break;
 		case 'G':
 		case 'g':
