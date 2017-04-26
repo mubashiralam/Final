@@ -196,7 +196,6 @@ void abandonedRoom()
 			{
 				crowbar = 1;
 				cout << "You've picked up the crowbar. It has been added to your inventory. \n";
-				cond2 = 0;
 			}
 			else
 				cout << "That's not here. \n";
